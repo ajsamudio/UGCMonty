@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-sand-50 text-ink-800 font-sans antialiased;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+  .reveal--visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .hero-in > * {
+    opacity: 0;
+    animation: heroFadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  .hero-in > *:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  .hero-in > *:nth-child(2) {
+    animation-delay: 0.25s;
+  }
+  .hero-in > *:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+  .hero-in > *:nth-child(4) {
+    animation-delay: 0.55s;
+  }
+}
+
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@layer components {
+  .container-lux {
+    @apply mx-auto w-full max-w-6xl px-6 sm:px-8;
+  }
+  .eyebrow {
+    @apply text-xs uppercase tracking-widest2 text-accent font-medium;
+  }
+  .section-heading {
+    @apply font-serif text-3xl sm:text-4xl text-ink-900;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-ink-900 px-7 py-3 text-sm font-medium text-sand-50 transition hover:bg-ink-700;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center rounded-full border border-ink-900/30 px-7 py-3 text-sm font-medium text-ink-900 transition hover:border-ink-900 hover:bg-ink-900 hover:text-sand-50;
+  }
+}
