@@ -6,8 +6,7 @@
 export const about = {
   heading: "The face behind the lens",
   // Headshot — replace with /images/headshot.jpg
-  photo:
-    "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80",
+  photo: "/images/pfp.jpg",
   body: [
     "I'm a travel content creator specializing in high-end hospitality — from luxury hotels and villas to Michelin-starred restaurants and fine dining experiences. Over the past few years I've produced photo and video content that turns world-class stays and meals into scroll-stopping stories.",
     "My work blends creative storytelling with performance: cinematic visuals engineered to increase bookings, fill tables, and strengthen a brand's presence across Instagram and TikTok.",
