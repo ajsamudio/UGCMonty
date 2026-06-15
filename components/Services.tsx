@@ -8,8 +8,8 @@ export default function Services() {
           <p className="eyebrow">Services</p>
           <h2 className="section-heading mt-3">How we can work together</h2>
           <p className="mt-4 text-ink-700">
-            Flexible packages for hosts, boutique hotels, and hospitality
-            groups.
+            Flexible packages for travel, food, and beauty brands — plus hotels,
+            restaurants, and hospitality groups.
           </p>
         </div>
         <div className="mt-12 grid gap-6 md:grid-cols-3">

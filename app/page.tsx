@@ -1,7 +1,9 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
+import LogoBar from "@/components/LogoBar";
+import Stats from "@/components/Stats";
 import About from "@/components/About";
-import Gallery from "@/components/Gallery";
+import TikTokFeed from "@/components/TikTokFeed";
 import Services from "@/components/Services";
 import Testimonials from "@/components/Testimonials";
 import InquiryForm from "@/components/InquiryForm";
@@ -13,10 +15,12 @@ export default function Home() {
     <main>
       <Nav />
       <Hero />
+      <LogoBar />
+      <Stats />
       <Reveal>
         <About />
       </Reveal>
-      <Gallery />
+      <TikTokFeed />
       <Reveal>
         <Services />
       </Reveal>

@@ -3,29 +3,24 @@
 // =============================================================
 
 export const siteConfig = {
-  // Your brand. Change to your name or a studio name, e.g. "High-End Stays Co."
-  brandName: "Monty's Stays",
-  // Short tag shown under the logo / in the browser tab
-  tagline: "Luxury Travel UGC & Content Strategy",
+  brandName: "Marie Fran",
+  tagline: "Travel · Food · Beauty · Arts Creator",
 
-  // The hero — the first thing a hotel sees. Sell what you do FOR them.
   hero: {
-    eyebrow: "UGC Creator · Hospitality Content",
-    headline: "Content that turns luxury stays into fully booked calendars.",
+    eyebrow: "UGC Creator · Travel · Food · Beauty · Arts",
+    headline: "Content that feels like a friend's recommendation — not an ad.",
     subhead:
-      "I create scroll-stopping photo and video content for hotels, villas, and boutique properties — the kind that drives bookings, lifts occupancy, and makes your space impossible to scroll past.",
+      "I'm Marie — a Philippines-based UGC creator making scroll-stopping content across travel, food, beauty, GRWM, and arts & jewelry. The kind that feels native to the feed and actually makes people want to go, try, and buy.",
     primaryCta: "Work with me",
     secondaryCta: "View portfolio",
-    // Background image (swap with your own in /public/images/hero.jpg later)
     backgroundImage:
       "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=2000&q=80",
   },
 
-  // Contact details shown in the footer
   contact: {
-    email: "ajayyys3@gmail.com",
-    instagram: "https://instagram.com/yourhandle",
-    tiktok: "https://tiktok.com/@yourhandle",
+    email: "mariefrandev@gmail.com",
+    instagram: "https://instagram.com/belovedseastar",
+    tiktok: "https://tiktok.com/@herconstellation",
   },
 } as const;
 
