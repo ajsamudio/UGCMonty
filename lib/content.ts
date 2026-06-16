@@ -5,17 +5,17 @@
 
 export const about = {
   heading: "Hi, I'm Marie",
-  photo: "/images/pfp.jpg",
+  photo: "/images/pfp.webp",
   // About-section carousel. Auto-cycles + left/right controls. Drop more images
   // in /public/images and add them here (match the filename case exactly).
   photos: [
-    "/images/pfp.jpg",
-    "/images/pfp2.JPG",
-    "/images/pfp3.jpg",
-    "/images/pfp4.jpg",
-    "/images/pfp5.jpg",
-    "/images/pfp6.jpg",
-    "/images/pfp7.jpg",
+    "/images/pfp.webp",
+    "/images/pfp2.webp",
+    "/images/pfp3.webp",
+    "/images/pfp4.webp",
+    "/images/pfp5.webp",
+    "/images/pfp6.webp",
+    "/images/pfp7.webp",
   ],
   body: [
     "I'm a Philippines-based UGC creator making content that feels less like an ad and more like a friend showing you something they love — across travel, food, beauty, and the things I make by hand.",
