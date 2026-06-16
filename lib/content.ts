@@ -15,6 +15,7 @@ export const about = {
     "/images/pfp4.jpg",
     "/images/pfp5.jpg",
     "/images/pfp6.jpg",
+    "/images/pfp7.jpg",
   ],
   body: [
     "I'm a Philippines-based UGC creator making content that feels less like an ad and more like a friend showing you something they love — across travel, food, beauty, and the things I make by hand.",
