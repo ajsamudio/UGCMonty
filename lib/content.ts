@@ -18,7 +18,7 @@ export const about = {
     "/images/pfp7.webp",
   ],
   body: [
-    "I'm a Philippines-based UGC creator making content that feels less like an ad and more like a friend showing you something they love — across travel, food, beauty, and the things I make by hand.",
+    "I'm a Bay Area–based, Philippines-raised UGC creator making content that feels less like an ad and more like a friend showing you something they love — across travel, food, beauty, and the things I make by hand.",
     "From hotel stays and hidden food spots to get-ready-with-me beauty, handmade art, and jewelry styling, I create photos and short-form videos that feel native to TikTok and Instagram — and actually make people want to go, try, and buy.",
     "Brands work with me for content they can own and reuse: authentic, scroll-stopping, and built to perform on the feed.",
   ],
@@ -47,43 +47,31 @@ export function tiktokUrl(item: TikTokItem): string {
 // add a line under the right category (set `photo: true` for /photo/ posts).
 export const tiktoks: TikTokItem[] = [
   // ── Travel ───────────────────────────────────────────────────────────────
-  { category: "Travel", id: "7599069672952171807" }, // Rome
-  { category: "Travel", id: "7631294369273826591" }, // Colorado
-  { category: "Travel", id: "7547472762521046302" },
-  { category: "Travel", id: "7511909447334169886" },
-  { category: "Travel", id: "7247756559843937579" },
-  { category: "Travel", id: "7139444094149020974" },
   { category: "Travel", id: "7553778590576315678" },
-  { category: "Travel", id: "7596074871818308895" },
-  { category: "Travel", id: "7255573282366442798" },
   { category: "Travel", id: "7492872767193337134" },
-  { category: "Travel", id: "7502108753177857326", photo: true },
-  { category: "Travel", id: "7554526490747079967" },
-  { category: "Travel", id: "7553781676896275742" },
-  { category: "Travel", id: "7504743357516680490", photo: true },
-  { category: "Travel", id: "7557124659322326302", photo: true },
   { category: "Travel", id: "7568233275802635551" },
+  { category: "Travel", id: "7554526490747079967" },
   { category: "Travel", id: "7597329303453404447" },
+  { category: "Travel", id: "7553781676896275742" },
+  { category: "Travel", id: "7596074871818308895" },
+  { category: "Travel", id: "7139444094149020974" },
+  { category: "Travel", id: "7247756559843937579" },
+  // ↓ not yet reordered — place these later
+  { category: "Travel", id: "7599069672952171807" }, // Rome
+  { category: "Travel", id: "7547472762521046302" },
+  { category: "Travel", id: "7631294369273826591" }, // Colorado
+  { category: "Travel", id: "7255573282366442798" },
 
   // ── Food & Cooking ─────────────────────────────────────────────────────────
-  { category: "Food & Cooking", id: "7311231890042817838" }, // Tinola x Nilaga
-  { category: "Food & Cooking", id: "7597976467439389983" }, // Mango bingsu
+  { category: "Food & Cooking", id: "7517461664220876062" },
   { category: "Food & Cooking", id: "7569738059495787806" },
   { category: "Food & Cooking", id: "7584604549705469215" },
   { category: "Food & Cooking", id: "7551880097465109790" },
+  { category: "Food & Cooking", id: "7597976467439389983" }, // Mango bingsu
   { category: "Food & Cooking", id: "7341611773474229547" },
-  { category: "Food & Cooking", id: "7517461664220876062" },
-  { category: "Food & Cooking", id: "7513608993617595678" },
-  { category: "Food & Cooking", id: "7247750400739233070" },
   { category: "Food & Cooking", id: "7594377532074511647" },
-
-  // ── Travel & Festivals ─────────────────────────────────────────────────────
-  { category: "Travel & Festivals", id: "7280577017202904363" }, // Eras Tour
-  { category: "Travel & Festivals", id: "7510792768927583531" },
-  { category: "Travel & Festivals", id: "7281500705981189419" },
-  { category: "Travel & Festivals", id: "7311230532728130862" },
-  { category: "Travel & Festivals", id: "7273543604935593258" },
-  { category: "Travel & Festivals", id: "7560813299755994399" },
+  { category: "Food & Cooking", id: "7513608993617595678" },
+  { category: "Food & Cooking", id: "7311231890042817838" }, // Tinola x Nilaga
 
   // ── Beauty, Makeup & GRWM ──────────────────────────────────────────────────
   { category: "Beauty & GRWM", id: "7606974854138531103" }, // Kikay
@@ -93,6 +81,15 @@ export const tiktoks: TikTokItem[] = [
   { category: "Beauty & GRWM", id: "7565749008191327519" },
   { category: "Beauty & GRWM", id: "7567198713823726879" },
   { category: "Beauty & GRWM", id: "7573886853246389534" },
+
+  // ── Festivals ──────────────────────────────────────────────────────────────
+  { category: "Festivals", id: "7281500705981189419" },
+  { category: "Festivals", id: "7510792768927583531" },
+  { category: "Festivals", id: "7511909447334169886" }, // Red Rocks
+  { category: "Festivals", id: "7280577017202904363" }, // Eras Tour
+  { category: "Festivals", id: "7311230532728130862" },
+  { category: "Festivals", id: "7273543604935593258" },
+  { category: "Festivals", id: "7560813299755994399" },
 
   // ── Arts & Jewelry ─────────────────────────────────────────────────────────
   { category: "Arts & Jewelry", id: "7473036109803457838" },
@@ -126,7 +123,6 @@ export type Logo = { name: string; src?: string };
 export const logos: Logo[] = [
   { name: "Travel" },
   { name: "Food & Cooking" },
-  { name: "Festivals" },
   { name: "Beauty & GRWM" },
   { name: "Arts & Jewelry" },
 ];
@@ -138,7 +134,6 @@ export const stats: Stat[] = [
   { value: "1.2K+", label: "TikTok community" },
   { value: "7.6K+", label: "Likes earned" },
   { value: "8.9K", label: "Top video views" },
-  { value: "IG · TikTok", label: "Where I create" },
 ];
 
 export type Service = { title: string; description: string; items: string[] };

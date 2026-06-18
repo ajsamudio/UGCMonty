@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { siteConfig } from "@/lib/site.config";
+import SocialLinks from "./SocialLinks";
 
 export default function Hero() {
   const { hero } = siteConfig;
@@ -32,6 +33,10 @@ export default function Hero() {
           >
             {hero.secondaryCta}
           </a>
+        </div>
+        <div className="mt-8 flex items-center gap-4">
+          <span className="eyebrow text-sand-100/70">Follow along</span>
+          <SocialLinks className="text-sand-50" iconClassName="h-6 w-6" />
         </div>
       </div>
     </section>

@@ -10,7 +10,7 @@ export const siteConfig = {
     eyebrow: "UGC Creator · Travel · Food · Beauty · Arts",
     headline: "Content that feels like a friend's recommendation — not an ad.",
     subhead:
-      "I'm Marie — a Philippines-based UGC creator making scroll-stopping content across travel, food, beauty, GRWM, and arts & jewelry. The kind that feels native to the feed and actually makes people want to go, try, and buy.",
+      "I'm Marie — a Bay Area–based, Philippines-raised UGC creator making scroll-stopping content across travel, food, beauty, GRWM, and arts & jewelry. The kind that feels native to the feed and actually makes people want to go, try, and buy.",
     primaryCta: "Work with me",
     secondaryCta: "View portfolio",
     backgroundImage:

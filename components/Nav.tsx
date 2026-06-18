@@ -1,4 +1,5 @@
 import { siteConfig } from "@/lib/site.config";
+import SocialLinks from "./SocialLinks";
 
 const links = [
   { href: "#about", label: "About" },
@@ -29,12 +30,18 @@ export default function Nav() {
             </li>
           ))}
         </ul>
-        <a
-          href="#contact"
-          className="rounded-full border border-sand-50/40 px-5 py-2 text-sm text-sand-50 transition hover:bg-sand-50 hover:text-ink-900"
-        >
-          {siteConfig.hero.primaryCta}
-        </a>
+        <div className="flex items-center gap-5">
+          <SocialLinks
+            className="hidden text-sand-50/90 sm:flex"
+            iconClassName="h-5 w-5"
+          />
+          <a
+            href="#contact"
+            className="rounded-full border border-sand-50/40 px-5 py-2 text-sm text-sand-50 transition hover:bg-sand-50 hover:text-ink-900"
+          >
+            {siteConfig.hero.primaryCta}
+          </a>
+        </div>
       </nav>
     </header>
   );
