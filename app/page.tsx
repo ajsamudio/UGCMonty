@@ -5,7 +5,7 @@ import Stats from "@/components/Stats";
 import About from "@/components/About";
 import TikTokFeed from "@/components/TikTokFeed";
 import Services from "@/components/Services";
-import Testimonials from "@/components/Testimonials";
+import WhyMe from "@/components/WhyMe";
 import InquiryForm from "@/components/InquiryForm";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
@@ -25,7 +25,7 @@ export default function Home() {
         <Services />
       </Reveal>
       <Reveal>
-        <Testimonials />
+        <WhyMe />
       </Reveal>
       <Reveal>
         <InquiryForm />

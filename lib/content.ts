@@ -142,7 +142,7 @@ export const services: Service[] = [
   {
     title: "Content Day",
     description:
-      "A full shoot for your brand, hotel, or restaurant — delivered ready to post.",
+      "A full shoot for your brand, product, or destination — delivered ready to post.",
     items: [
       "Half or full-day shoot on location",
       "15–25 edited photos",
@@ -162,7 +162,7 @@ export const services: Service[] = [
   },
   {
     title: "Ongoing Partnership",
-    description: "Monthly content for brands, hotels, and hospitality groups.",
+    description: "Monthly content for brands across travel, food, and beauty.",
     items: [
       "Monthly content retainer",
       "Travel, food & beauty coverage",
@@ -172,25 +172,21 @@ export const services: Service[] = [
   },
 ];
 
-export type Testimonial = { quote: string; name: string; role: string };
+// Honest value props instead of invented testimonials. Swap this section for
+// real client quotes once Marie has them.
+export type Reason = { title: string; body: string };
 
-export const testimonials: Testimonial[] = [
+export const reasons: Reason[] = [
   {
-    quote:
-      "The content was stunning and our bookings noticeably picked up the month after. Easy to work with and incredibly professional.",
-    name: "Placeholder Name",
-    role: "Owner, Boutique Villa",
+    title: "Content that doesn't feel like an ad",
+    body: "Every photo and video looks like a friend's recommendation — so it earns trust and watch-time instead of getting scrolled past.",
   },
   {
-    quote:
-      "Communication was seamless and the deliverables exceeded what we expected. We've already booked a second shoot.",
-    name: "Placeholder Name",
-    role: "Marketing Manager, Hotel Group",
+    title: "One creator, every pillar",
+    body: "Travel, food, beauty, GRWM, and handmade arts — flexible coverage from a single creator who can match whatever your campaign needs.",
   },
   {
-    quote:
-      "Our listing finally looks as premium as the property actually is. Worth every penny.",
-    name: "Placeholder Name",
-    role: "Superhost, Airbnb",
+    title: "Content you own and reuse",
+    body: "You keep full usage rights to everything I shoot. Repost it, run it as a paid ad, or use it across your channels — it's yours.",
   },
 ];

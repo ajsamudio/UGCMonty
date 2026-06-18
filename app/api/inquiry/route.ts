@@ -49,7 +49,7 @@ export async function POST(req: Request) {
       text: [
         `Name: ${name}`,
         `Email: ${email}`,
-        `Property / Company: ${property}`,
+        `Brand / Company: ${property}`,
         `Dates: ${dates || "—"}`,
         "",
         "Message:",

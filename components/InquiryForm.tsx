@@ -44,7 +44,7 @@ export default function InquiryForm() {
           <p className="eyebrow">Contact</p>
           <h2 className="section-heading mt-3">{siteConfig.hero.primaryCta}</h2>
           <p className="mt-4 max-w-md text-ink-700">
-            Tell me about your property and what you&rsquo;re looking for. I read
+            Tell me about your brand and what you&rsquo;re looking for. I read
             every inquiry personally and reply within a few days.
           </p>
           <p className="mt-6 text-sm text-ink-700">
@@ -115,7 +115,7 @@ export default function InquiryForm() {
             </div>
             <div>
               <input
-                placeholder="Property or company name"
+                placeholder="Brand or company name"
                 className={field}
                 {...register("property")}
               />
@@ -132,7 +132,7 @@ export default function InquiryForm() {
             </div>
             <div>
               <textarea
-                placeholder="Tell me about your property and goals"
+                placeholder="Tell me about your brand and goals"
                 rows={4}
                 className={field}
                 {...register("message")}
