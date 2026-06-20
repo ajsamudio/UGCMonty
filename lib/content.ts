@@ -10,7 +10,6 @@ export const about = {
   // in /public/images and add them here (match the filename case exactly).
   photos: [
     "/images/pfp.webp",
-    "/images/pfp2.webp",
     "/images/pfp3.webp",
     "/images/pfp4.webp",
     "/images/pfp5.webp",
