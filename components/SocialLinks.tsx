@@ -33,13 +33,22 @@ function TikTokIcon({ className }: { className?: string }) {
 type Props = {
   className?: string;
   iconClassName?: string;
+  /** "plain" = bare icons (default); "button" = circular bordered buttons. */
+  variant?: "plain" | "button";
 };
 
 export default function SocialLinks({
   className = "",
   iconClassName = "h-5 w-5",
+  variant = "plain",
 }: Props) {
   const { contact } = siteConfig;
+
+  const linkClass =
+    variant === "button"
+      ? "grid h-10 w-10 place-items-center rounded-full border border-sand-300/25 text-sand-100 transition duration-300 hover:-translate-y-0.5 hover:border-accent hover:text-sand-50"
+      : "transition hover:opacity-70";
+
   return (
     <div className={`flex items-center gap-4 ${className}`}>
       <a
@@ -47,7 +56,7 @@ export default function SocialLinks({
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Instagram"
-        className="transition hover:opacity-70"
+        className={linkClass}
       >
         <InstagramIcon className={iconClassName} />
       </a>
@@ -56,7 +65,7 @@ export default function SocialLinks({
         target="_blank"
         rel="noopener noreferrer"
         aria-label="TikTok"
-        className="transition hover:opacity-70"
+        className={linkClass}
       >
         <TikTokIcon className={iconClassName} />
       </a>

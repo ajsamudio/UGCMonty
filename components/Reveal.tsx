@@ -6,9 +6,16 @@ type RevealProps = {
   children: React.ReactNode;
   className?: string;
   delay?: number;
+  /** Animation style: fade-up (default), slide from a side, zoom, or blur-in. */
+  variant?: "up" | "left" | "right" | "zoom" | "blur";
 };
 
-export default function Reveal({ children, className = "", delay = 0 }: RevealProps) {
+export default function Reveal({
+  children,
+  className = "",
+  delay = 0,
+  variant = "up",
+}: RevealProps) {
   const ref = useRef<HTMLDivElement | null>(null);
   const [visible, setVisible] = useState(false);
 
@@ -40,6 +47,7 @@ export default function Reveal({ children, className = "", delay = 0 }: RevealPr
   return (
     <div
       ref={ref}
+      data-reveal={variant}
       className={`reveal ${visible ? "reveal--visible" : ""} ${className}`}
       style={delay ? { transitionDelay: `${delay}ms` } : undefined}
     >

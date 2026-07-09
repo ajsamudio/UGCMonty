@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { siteConfig } from "@/lib/site.config";
 import SocialLinks from "./SocialLinks";
 
@@ -9,12 +12,37 @@ const links = [
 ];
 
 export default function Nav() {
+  // Transparent over the hero; frosted light bar with dark text after scrolling.
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > window.innerHeight * 0.6);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const text = scrolled ? "text-ink-900" : "text-sand-50";
+  const textSoft = scrolled ? "text-ink-700/80" : "text-sand-50/90";
+
   return (
-    <header className="absolute top-0 left-0 right-0 z-20">
-      <nav className="container-lux flex items-center justify-between py-6">
+    <header
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
+        scrolled
+          ? "bg-sand-50/85 shadow-[0_1px_24px_rgba(24,22,20,0.08)] backdrop-blur-md"
+          : "bg-transparent"
+      }`}
+    >
+      <nav
+        className={`container-lux flex items-center justify-between transition-all duration-500 ${
+          scrolled ? "py-3.5" : "py-6"
+        }`}
+      >
         <a
           href="#top"
-          className="font-serif text-xl text-sand-50 tracking-wide drop-shadow"
+          className={`font-serif text-xl tracking-wide transition-colors duration-500 ${text} ${
+            scrolled ? "" : "drop-shadow"
+          }`}
         >
           {siteConfig.brandName}
         </a>
@@ -23,7 +51,11 @@ export default function Nav() {
             <li key={l.href}>
               <a
                 href={l.href}
-                className="text-sm text-sand-50/90 transition hover:text-sand-50"
+                className={`nav-link text-sm transition-colors duration-500 ${
+                  scrolled
+                    ? "text-ink-700/80 hover:text-ink-900"
+                    : "text-sand-50/90 hover:text-sand-50"
+                }`}
               >
                 {l.label}
               </a>
@@ -32,12 +64,16 @@ export default function Nav() {
         </ul>
         <div className="flex items-center gap-5">
           <SocialLinks
-            className="hidden text-sand-50/90 sm:flex"
+            className={`hidden sm:flex transition-colors duration-500 ${textSoft}`}
             iconClassName="h-5 w-5"
           />
           <a
             href="#contact"
-            className="rounded-full border border-sand-50/40 px-5 py-2 text-sm text-sand-50 transition hover:bg-sand-50 hover:text-ink-900"
+            className={`rounded-full border px-5 py-2 text-sm transition-all duration-500 ${
+              scrolled
+                ? "border-ink-900/30 text-ink-900 hover:bg-ink-900 hover:text-sand-50"
+                : "border-sand-50/40 text-sand-50 hover:bg-sand-50 hover:text-ink-900"
+            }`}
           >
             {siteConfig.hero.primaryCta}
           </a>

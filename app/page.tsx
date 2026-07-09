@@ -9,25 +9,21 @@ import WhyMe from "@/components/WhyMe";
 import InquiryForm from "@/components/InquiryForm";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
+import ScrollProgress from "@/components/ScrollProgress";
 
 export default function Home() {
   return (
     <main>
+      <ScrollProgress />
       <Nav />
       <Hero />
       <LogoBar />
       <Stats />
-      <Reveal>
-        <About />
-      </Reveal>
+      <About />
       <TikTokFeed />
-      <Reveal>
-        <Services />
-      </Reveal>
-      <Reveal>
-        <WhyMe />
-      </Reveal>
-      <Reveal>
+      <Services />
+      <WhyMe />
+      <Reveal variant="blur">
         <InquiryForm />
       </Reveal>
       <Footer />
