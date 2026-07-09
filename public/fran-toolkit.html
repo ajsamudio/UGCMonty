@@ -539,6 +539,34 @@
   <h3>Ready-to-use email templates</h3>
   <p class="subtitle">These auto-fill with your name & portfolio from "My Info". Click copy, then personalize the [brackets].</p>
 
+  <div class="card">
+    <h4 style="margin-top:0">✨ Personalize for one brand</h4>
+    <p class="mini">Fill these in and the templates below rewrite themselves for that company — so every pitch reads like it was written just for them, with a real line about why you align with what they do.</p>
+    <div class="grid2">
+      <div>
+        <label>Brand name</label>
+        <input type="text" id="pzBrand" placeholder="e.g. GLDN" oninput="renderTemplates()" />
+      </div>
+      <div>
+        <label>Contact first name (if you have it)</label>
+        <input type="text" id="pzFirst" placeholder="e.g. Sarah" oninput="renderTemplates()" />
+      </div>
+    </div>
+    <div class="grid2">
+      <div>
+        <label>Product of theirs you love</label>
+        <input type="text" id="pzProduct" placeholder="e.g. the zodiac necklace" oninput="renderTemplates()" />
+      </div>
+      <div>
+        <label>One specific detail you love about it</label>
+        <input type="text" id="pzDetail" placeholder="e.g. how dainty the chain is" oninput="renderTemplates()" />
+      </div>
+    </div>
+    <label>Why you align with them (their vibe, values, or aesthetic)</label>
+    <input type="text" id="pzAlign" placeholder="e.g. your celestial, meaning-behind-every-piece aesthetic is exactly my world" oninput="renderTemplates()" />
+    <p class="mini" style="margin-top:8px">Leave any field blank and it stays a [bracket] you can fill in by hand.</p>
+  </div>
+
   <div class="card" id="templateHost"></div>
 
   <div class="callout warn">
@@ -828,34 +856,47 @@ const NICHE = () => profile.niche || 'travel & lifestyle';
 const SIG = () => `${N()}\n${NICHE()} UGC creator${profile.portfolio ? '\n'+profile.portfolio : ''}${profile.email ? '\n'+profile.email : ''}`;
 
 /* ---------- templates (tab 1) ---------- */
+const PZ = id => (document.getElementById(id)?.value.trim() || '');
 function templates(){
+  const brand   = PZ('pzBrand')   || '[Brand]';
+  const first   = PZ('pzFirst')   || '[First name]';
+  const product = PZ('pzProduct') || '[product]';
+  const detail  = PZ('pzDetail')  || '[specific detail]';
+  const align   = PZ('pzAlign');
+  // The line that makes each pitch feel personal to that one company.
+  const alignLine = align
+    ? `What really made me want to reach out is that ${align} — that overlap is exactly why I think my content would feel right at home on ${brand}'s channels.`
+    : `What really made me want to reach out is how much ${brand} lines up with what I already create — [one line on why your style/values align with theirs].`;
+
   return [
     {
       title: 'Cold pitch (brand you use)',
-      subject: `UGC content for [Brand] — ${NICHE()} creator`,
+      subject: `UGC content for ${brand} — ${NICHE()} creator`,
       body:
-`Hi [First name],
+`Hi ${first},
 
-I've been using [Brand]'s [product] on my trips and genuinely love it — the [specific detail] especially.
+I've been using ${brand}'s ${product} and genuinely love it — ${detail} especially.
 
-I'm ${N()}, a ${NICHE()} UGC creator. I make short-form videos brands can use on their own TikTok, in paid ads, and on their site — no big following required on your end, just content that converts.
+I'm ${N()}, a ${NICHE()} UGC creator. ${alignLine}
+
+I make short-form videos brands can use on their own TikTok, in paid ads, and on their site — no big following required on your end, just content that converts.
 
 A few recent examples: ${PORT()}
 
-Would it be helpful if I sent over 2–3 quick concepts for [Brand]? Happy to shoot a sample.
+Would it be helpful if I sent over 2–3 quick concepts for ${brand}? Happy to shoot a sample.
 
 Thanks so much,
 ${SIG()}`
     },
     {
       title: 'Gifted / sample first (portfolio building)',
-      subject: `[Brand] x ${N()} — short-form video collab`,
+      subject: `${brand} x ${N()} — short-form video collab`,
       body:
-`Hi [First name],
+`Hi ${first},
 
-Big fan of [Brand] — [one specific, true reason].
+Big fan of ${brand} — ${align ? align : '[one specific, true reason]'}.
 
-I'm ${N()}, a ${NICHE()} UGC creator. I'd love to create a short-form video featuring [product]. If you're open to sending one over, I'll produce a video you're free to use across your channels — a low-risk way for us to test working together.
+I'm ${N()}, a ${NICHE()} UGC creator. I'd love to create a short-form video featuring ${product}. It's a natural fit for me because ${align ? align : "[why their brand aligns with your content]"}, so it wouldn't feel like an ad — it'd feel like me. If you're open to sending one over, I'll produce a video you're free to use across your channels — a low-risk way for us to test working together.
 
 Recent work: ${PORT()}
 
@@ -866,22 +907,22 @@ ${SIG()}`
     },
     {
       title: 'Follow-up #1 (3–4 days later)',
-      subject: `Re: UGC content for [Brand]`,
+      subject: `Re: UGC content for ${brand}`,
       body:
-`Hi [First name],
+`Hi ${first},
 
-Just floating this back to the top in case it got buried 🙂 Still happy to send a couple of video concepts for [Brand] whenever the timing's right.
+Just floating this back to the top in case it got buried 🙂 Still happy to send a couple of video concepts for ${brand} whenever the timing's right.
 
 Thanks!
 ${N()}`
     },
     {
       title: 'Follow-up #2 (about a week later)',
-      subject: `Re: UGC content for [Brand]`,
+      subject: `Re: UGC content for ${brand}`,
       body:
-`Hi [First name],
+`Hi ${first},
 
-Last note from me — I put together a quick idea for [Brand]: [one-line concept, e.g. "a 'what's in my carry-on' video featuring the weekender"]. If it's useful I'd love to make it; if not, no worries at all and I'll leave you to it.
+Last note from me — I put together a quick idea for ${brand}: [one-line concept, e.g. "a 'what's in my carry-on' video featuring the weekender"]. If it's useful I'd love to make it; if not, no worries at all and I'll leave you to it.
 
 Either way, big fan of what you're building.
 

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Inter } from "next/font/google";
+import { Cormorant_Garamond, Inter, Caveat } from "next/font/google";
 import { siteConfig } from "@/lib/site.config";
 import "./globals.css";
 
@@ -13,6 +13,14 @@ const serif = Cormorant_Garamond({
 const sans = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
+  display: "swap",
+});
+
+// Handwritten diary voice — used for headings, captions and sticker labels.
+const hand = Caveat({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-hand",
   display: "swap",
 });
 
@@ -34,7 +42,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${serif.variable} ${sans.variable}`}>
+    <html lang="en" className={`${serif.variable} ${sans.variable} ${hand.variable}`}>
       <body>{children}</body>
     </html>
   );

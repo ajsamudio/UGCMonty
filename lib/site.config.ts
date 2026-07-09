@@ -13,8 +13,7 @@ export const siteConfig = {
       "I'm Marie — a Bay Area–based, Philippines-raised UGC creator making scroll-stopping content across travel, food, beauty, GRWM, and arts & jewelry. The kind that feels native to the feed and actually makes people want to go, try, and buy.",
     primaryCta: "Work with me",
     secondaryCta: "View portfolio",
-    backgroundImage:
-      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=2000&q=80",
+    backgroundImage: "/images/hero.jpg",
   },
 
   contact: {
