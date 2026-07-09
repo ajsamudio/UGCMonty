@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>✈️ Fran's UGC Toolkit — Pitch, Brand Finder & TikTok Shop 101</title>
+<style>
+  :root {
+    --bg: #fdf4ee;
+    --surface: #fffbf8;
+    --surface2: #fbeae6;
+    --border: #f2d7cf;
+    --accent: #e6799a;
+    --accent2: #d95f86;
+    --blue: #6b8cc7;
+    --text: #4a3a3f;
+    --muted: #a98a90;
+    --success: #4caf8f;
+    --danger: #de6a6a;
+    --tag-bg: #fbe1e8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    padding: 0 0 80px;
+    line-height: 1.55;
+  }
+  a { color: var(--accent2); }
+
+  /* ===== HEADER ===== */
+  header {
+    background: linear-gradient(135deg, #fff1ea 0%, #fbe3ec 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 28px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+    flex-wrap: wrap;
+  }
+  .logo {
+    font-size: 24px;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.5px;
+  }
+  .logo span { font-weight: 300; opacity: 0.7; -webkit-text-fill-color: var(--muted); }
+  .badge {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #fff;
+    font-size: 10px;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+  }
+  .header-spacer { flex: 1; }
+  .profile-btn {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .profile-btn:hover { border-color: var(--accent); }
+
+  /* ===== TABS ===== */
+  nav.tabs {
+    display: flex;
+    gap: 6px;
+    padding: 14px 28px 0;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .tab {
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--muted);
+    padding: 10px 16px;
+    border-radius: 10px 10px 0 0;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .tab:hover { color: var(--text); }
+  .tab.active {
+    color: var(--accent2);
+    background: var(--surface);
+    border-color: var(--border);
+    border-bottom-color: var(--surface);
+  }
+
+  /* ===== LAYOUT ===== */
+  main { max-width: 1000px; margin: 0 auto; padding: 0 28px; }
+  .panel { display: none; animation: fade .25s ease; }
+  .panel.active { display: block; }
+  @keyframes fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px 24px;
+    margin: 18px 0;
+    box-shadow: 0 4px 16px rgba(217,95,134,.06);
+  }
+  h2.section-title {
+    font-size: 22px;
+    margin: 26px 0 4px;
+    color: var(--accent2);
+  }
+  .subtitle { color: var(--muted); font-size: 14px; margin-bottom: 6px; }
+  h3 { font-size: 17px; margin: 4px 0 10px; }
+  h4 { font-size: 15px; margin: 16px 0 6px; color: var(--accent2); }
+  p { margin: 8px 0; }
+  ul, ol { margin: 8px 0 8px 22px; }
+  li { margin: 6px 0; }
+
+  .step {
+    display: flex;
+    gap: 14px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .step:last-child { border-bottom: none; }
+  .step-num {
+    flex: 0 0 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #fff;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+  }
+  .step-body { flex: 1; }
+  .step-body h3 { margin: 4px 0 6px; }
+
+  .pill {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--accent2);
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 2px 4px 2px 0;
+  }
+  .good { color: var(--success); font-weight: 700; }
+  .bad { color: var(--danger); font-weight: 700; }
+
+  .callout {
+    background: var(--surface2);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 10px 10px 0;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 14px;
+  }
+  .callout.warn { border-left-color: var(--danger); }
+  .callout.tip { border-left-color: var(--success); }
+
+  /* ===== FORM ===== */
+  label { display: block; font-size: 13px; font-weight: 600; color: var(--muted); margin: 12px 0 5px; }
+  input[type=text], input[type=url], input[type=email], textarea, select {
+    width: 100%;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+    padding: 11px 13px;
+    font-size: 14px;
+    font-family: inherit;
+  }
+  input:focus, textarea:focus, select:focus { outline: none; border-color: var(--accent); }
+  textarea { resize: vertical; min-height: 80px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 640px) { .grid2 { grid-template-columns: 1fr; } }
+
+  button.btn {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    margin-top: 16px;
+  }
+  button.btn:hover { filter: brightness(1.08); }
+  button.btn.secondary {
+    background: var(--surface2);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  .btn-row { display: flex; gap: 10px; flex-wrap: wrap; }
+
+  .output {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    margin-top: 14px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    font-family: 'Consolas', 'Courier New', monospace;
+  }
+  .copy-line { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .mini { font-size: 12px; color: var(--muted); }
+  .copy-btn {
+    background: var(--tag-bg);
+    color: var(--accent2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .copy-btn:hover { border-color: var(--accent); }
+
+  .checklist { list-style: none; margin-left: 0; }
+  .checklist li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 8px 10px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin: 7px 0;
+  }
+  .checklist input { width: auto; margin-top: 3px; flex: 0 0 auto; }
+
+  table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { color: var(--accent2); font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  /* ===== TRACKER ===== */
+  .tracker-row td input { padding: 7px 9px; font-size: 13px; }
+  .del-btn { background: none; border: none; color: var(--danger); cursor: pointer; font-size: 16px; }
+  .status-select { font-size: 12px; padding: 6px; }
+
+  /* ===== MODAL ===== */
+  .modal-bg {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,.6);
+    z-index: 200;
+    align-items: center; justify-content: center;
+    padding: 20px;
+  }
+  .modal-bg.open { display: flex; }
+  .modal {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    max-width: 440px;
+    width: 100%;
+  }
+  .toast {
+    position: fixed;
+    bottom: 24px; left: 50%; transform: translateX(-50%);
+    background: var(--accent2);
+    color: #fff;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 30px;
+    box-shadow: 0 6px 20px rgba(217,95,134,.35);
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity .2s;
+    pointer-events: none;
+    z-index: 300;
+  }
+  .toast.show { opacity: 1; }
+  .foot { text-align: center; color: var(--muted); font-size: 12px; margin-top: 40px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Fran's UGC Toolkit <span>·</span></div>
+  <div class="badge">CREATOR EDITION</div>
+  <div class="header-spacer"></div>
+  <button class="profile-btn" onclick="openProfile()">⚙️ My Info</button>
+</header>
+
+<nav class="tabs">
+  <button class="tab active" data-tab="team">🤝 Team Plan</button>
+  <button class="tab" data-tab="plan">🚀 Game Plan</button>
+  <button class="tab" data-tab="pitch">📧 Pitch 101</button>
+  <button class="tab" data-tab="finder">🔎 Brand Finder + Email Builder</button>
+  <button class="tab" data-tab="beauty">💄 Beauty & Jewelry Targets</button>
+  <button class="tab" data-tab="shop">🛍️ TikTok Shop & UGC 101</button>
+  <button class="tab" data-tab="tracker">📊 Outreach Tracker</button>
+</nav>
+
+<main>
+
+<!-- ============ TAB -1: TEAM PLAN (for the in-person sit-down) ============ -->
+<section class="panel active" id="team">
+  <h2 class="section-title">Team Plan — You Film, I Run the Business</h2>
+  <p class="subtitle">The simple version for Marie. No jargon, no homework — just what we're doing, why, and the tiny part that's yours.</p>
+
+  <div class="callout tip">
+    <strong>The pitch in 30 seconds:</strong> "Your account already qualifies for TikTok Shop's creator program — it's free, brands ship you products, and you earn a cut of every sale your videos drive. On top of that, brands pay flat fees for videos like the ones you already make, even at 1.2K followers. I'll handle all the boring parts — finding brands, emails, follow-ups, tracking. You just keep filming. It costs us $0 to start."
+  </div>
+
+  <div class="card">
+    <h3>💅 Marie's whole job (about 2 hours a week)</h3>
+    <ul class="checklist">
+      <li><input type="checkbox"><span><strong>Film 2–3 short videos a week</strong> featuring a product — GRWM, cooking, jewelry styling. Same stuff you already post, just with the product tagged.</span></li>
+      <li><input type="checkbox"><span><strong>Claim free product drops fast</strong> when a notification hits (Influenster/TikTok Shop samples go in minutes).</span></li>
+      <li><input type="checkbox"><span><strong>Screenshot/forward me anything a brand sends you</strong> — DMs, emails, offers. Don't reply yet; I handle negotiation.</span></li>
+      <li><input type="checkbox"><span><strong>Reply to comments</strong> on product videos when you can — it boosts sales and follower growth toward the 5K unlock.</span></li>
+    </ul>
+    <p class="mini">That's it. Everything below is my side.</p>
+  </div>
+
+  <div class="card">
+    <h3>🧑‍💼 What I handle (so she never has to)</h3>
+    <p>
+      <span class="pill">Finding brands</span>
+      <span class="pill">Pitch emails</span>
+      <span class="pill">Follow-ups</span>
+      <span class="pill">Rate negotiation</span>
+      <span class="pill">Outreach tracker</span>
+      <span class="pill">Portfolio site</span>
+      <span class="pill">UGC platform applications</span>
+      <span class="pill">Weekly brand shortlist</span>
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>📱 Do together in person (needs her phone — ~45 min)</h3>
+    <ul class="checklist">
+      <li><input type="checkbox"><span><strong>Activate TikTok Shop for Creators</strong> on her phone: Profile → menu (☰) → Creator tools → TikTok Shop for Creators. (~5 min)</span></li>
+      <li><input type="checkbox"><span><strong>Browse the Affiliate marketplace together</strong> — request 2–3 free samples in beauty/jewelry so product is already on the way. (~10 min)</span></li>
+      <li><input type="checkbox"><span><strong>Create gifting profiles</strong> with her accounts linked: Influenster, Shopify Collabs, JoinBrands. Turn notifications ON. (~20 min)</span></li>
+      <li><input type="checkbox"><span><strong>Pick her 3–5 best product-style clips</strong> for UGC platform applications and pitch attachments.</span></li>
+      <li><input type="checkbox"><span><strong>Agree on the money + reply email</strong> — which inbox brand replies go to, how earnings/splits work between you two. Say it out loud once so it's never weird later.</span></li>
+      <li><input type="checkbox"><span><strong>Fill in "My Info"</strong> (top right of this page) so every email template auto-fills correctly.</span></li>
+    </ul>
+    <div class="callout"><strong>Walk out of the meeting with:</strong> Shop affiliate activated, 2–3 samples requested, gifting profiles live, clips picked, money talk done. Everything else I do from home.</div>
+  </div>
+
+  <div class="card">
+    <h3>💬 If she asks…</h3>
+    <table>
+      <tr><th>Question</th><th>Answer</th></tr>
+      <tr><td>"Do I have enough followers?"</td><td>Yes — TikTok Shop needs 1,000 (you have ~1.2K), and paid UGC gigs don't care about followers at all. Brands buy the <em>videos</em>, not the audience.</td></tr>
+      <tr><td>"Does this cost anything?"</td><td>$0. No inventory, no fees. Brands ship products free; affiliate is commission on sales.</td></tr>
+      <tr><td>"How much time?"</td><td>~2 hrs/week: the videos you already make, just product-tagged, within TikTok's 5-videos/week starter limit anyway.</td></tr>
+      <tr><td>"When does money show up?"</td><td>Realistic: free products in weeks 1–4, first commissions + first paid gig ($75–$250/video) around weeks 4–8. It compounds from there.</td></tr>
+      <tr><td>"What if a video flops?"</td><td>Doesn't matter for UGC — the brand pays the flat fee either way. For affiliate, volume wins; post the next one.</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ============ TAB 0: GAME PLAN ============ -->
+<section class="panel" id="plan">
+  <h2 class="section-title">The Money Game Plan — 3 Routes, Run All 3</h2>
+  <p class="subtitle">Built for @herconstellation at ~1.2K followers (July 2026). Each route feeds the others: free products → content → portfolio → paid deals.</p>
+
+  <div class="callout tip">
+    <strong>The short version:</strong> You don't need to "buy" anything to sell on TikTok Shop as a creator — the <strong>affiliate program is free</strong> and she already qualifies at 1,000+ followers. Brands send the product, she posts, she earns commission. Run that alongside PR gifting sign-ups and paid UGC platforms, and money can come in from three directions at once.
+  </div>
+
+  <div class="card">
+    <h3>💸 Route A — TikTok Shop Affiliate (start today, it's free)</h3>
+    <p class="mini">Commission on every sale through her tagged videos + free product samples from sellers. No buying inventory, no upfront cost.</p>
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h3>Turn it on</h3>
+        <p>TikTok app → Profile → menu (☰) → <em>Creator tools</em> → <em>TikTok Shop for Creators</em>. Requirements (US): 18+, 1,000+ followers — <span class="good">she's eligible now</span>.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h3>Know the pilot rules (1K–5K followers)</h3>
+        <p>Under 5,000 followers she starts in the <strong>Creator Pilot Program</strong> (~30 days): she can only promote products from top-rated shops (95%+ shop score) and post up to <strong>5 product videos + 3 LIVEs per week</strong>. That's still plenty — 5 shop videos/week is a solid schedule anyway.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h3>Request free samples, post consistently</h3>
+        <p>In the Affiliate marketplace, filter beauty / jewelry / kitchen by commission %, and hit <em>"Request free sample"</em> — sellers ship product to creators who look active. Film GRWM-style, tag the product, repeat weekly.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h3>Grow to 5,000 followers to unlock the full marketplace</h3>
+        <p>5K removes the pilot limits and opens every seller. Fastest path with her content: post daily-ish in one pillar (beauty/GRWM converts best for Shop), reply to every comment, and use the Shop videos themselves — product content is currently favored by the algorithm.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>🎁 Route B — Get PR sent to her (gifting programs)</h3>
+    <p class="mini">Beauty is the most active gifting category right now, and most programs accept creators under 10K followers — engagement matters more than size.</p>
+    <ul>
+      <li><strong>Sign up on gifting platforms (do all, ~1 hour total):</strong>
+        <span class="pill">Influenster</span> <span class="pill">Skeepers</span> <span class="pill">Shopify Collabs</span> <span class="pill">JoinBrands (gifted campaigns)</span>
+      </li>
+      <li><strong>Complete the profiles 100%</strong> — niche, stats, linked TikTok. Brands filter out half-finished profiles first.</li>
+      <li><strong>Influenster tip:</strong> "Claim Now" drops go in minutes — turn notifications on and claim fast.</li>
+      <li><strong>Skeepers warning:</strong> missing a posting deadline freezes your account — only accept what she'll actually film.</li>
+      <li><strong>Direct PR pitches:</strong> use the "Gifted / sample first" template in <a href="#" onclick="document.querySelector('[data-tab=pitch]').click();return false;">Pitch 101</a> on the Tier 1 brands in <a href="#" onclick="document.querySelector('[data-tab=beauty]').click();return false;">Beauty &amp; Jewelry Targets</a>. Ask to be added to their <em>PR list</em> — smaller ask than a paid deal, much higher yes-rate.</li>
+    </ul>
+    <div class="callout">Every PR unboxing = free content for her feed + a portfolio piece + a warm brand contact to upsell into paid UGC later. Log each one in the <a href="#" onclick="document.querySelector('[data-tab=tracker]').click();return false;">Tracker</a>.</div>
+  </div>
+
+  <div class="card">
+    <h3>💰 Route C — Paid UGC platforms (cash fastest, followers irrelevant)</h3>
+    <p class="mini">Brands on these platforms pay flat fees for videos they run as ads — her 1.2K following doesn't matter, her portfolio site does.</p>
+    <table>
+      <tr><th>Platform</th><th>What to expect</th></tr>
+      <tr><td><strong>JoinBrands</strong></td><td>Most beginner-friendly; transparent pricing, roughly $100+ per project; also has gifted campaigns.</td></tr>
+      <tr><td><strong>Billo</strong></td><td>Fast e-commerce video gigs, ~$79–$199 per video; good volume for building income.</td></tr>
+      <tr><td><strong>Twirl</strong></td><td>Set your own rates, sell TikTok-style videos and Reels; no follower minimum.</td></tr>
+      <tr><td><strong>Trend.io</strong></td><td>Vetted creators only — apply once the portfolio has 5+ strong samples; less competition once in.</td></tr>
+    </table>
+    <p>Application asset = <strong>her portfolio site</strong> + 3–5 of her best product-style clips (GRWM, kitchen, jewelry styling). She already has these on her feed.</p>
+  </div>
+
+  <div class="card">
+    <h3>📅 The weekly rhythm (repeat until booked)</h3>
+    <table>
+      <tr><th>When</th><th>Do</th></tr>
+      <tr><td><strong>Mon</strong></td><td>Pick 5 brands (Beauty Targets tab + TikTok Shop marketplace). Find contacts with the Brand Finder.</td></tr>
+      <tr><td><strong>Tue–Wed</strong></td><td>Send 5 pitches (mix paid + gifted). Log every send in the Tracker.</td></tr>
+      <tr><td><strong>Thu</strong></td><td>Film & post 2–3 TikTok Shop / product videos (counts toward the 5/week pilot limit).</td></tr>
+      <tr><td><strong>Fri</strong></td><td>Follow-ups: bump anything sent 3–4 days ago. Check gifting platforms for new drops.</td></tr>
+      <tr><td><strong>Weekend</strong></td><td>1 UGC-platform application or job claim (JoinBrands/Billo).</td></tr>
+    </table>
+    <p class="mini"><strong>30 days:</strong> Shop affiliate live + all gifting profiles up + 20 pitches out. <strong>60 days:</strong> first PR packages + first affiliate commissions + 1–2 paid platform gigs. <strong>90 days:</strong> 5K followers in sight, full marketplace, raise UGC rates.</p>
+  </div>
+</section>
+
+<!-- ============ TAB 1: PITCH 101 ============ -->
+<section class="panel" id="pitch">
+  <h2 class="section-title">How to Pitch a Brand by Email — Beginner Steps</h2>
+  <p class="subtitle">Read this once top-to-bottom. Then use the Brand Finder tab to actually write & send.</p>
+
+  <div class="callout tip">
+    <strong>The whole game in one sentence:</strong> Find a brand you genuinely like → find a real human's email → send a short, specific message that shows them one thing you can make for them → follow up twice. That's it.
+  </div>
+
+  <div class="card">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h3>Make a target list (15–20 brands)</h3>
+        <p>Don't email randomly. Pick brands you'd actually use on camera — travel gear, hotels, skincare, snacks, apps. Small & medium brands reply the most; huge brands have agencies and ignore DMs.</p>
+        <p class="mini">Good starting pools: products already in your videos, brands other UGC creators tag, TikTok Shop products with a "commission" badge, and brands running lots of ads (they need content).</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h3>Find the right person's email</h3>
+        <p>You want <em>marketing / influencer / partnerships / brand</em> — not customer support. Full how-to is in the <strong>Brand Finder</strong> tab, but the fast version:</p>
+        <ul>
+          <li>Brand website → footer or "Contact" / "Press" / "Work with us" page.</li>
+          <li>Instagram/TikTok bio → often has a business email or a "collabs" link.</li>
+          <li>Guess the pattern: <span class="pill">hello@brand.com</span> <span class="pill">marketing@brand.com</span> <span class="pill">partnerships@brand.com</span> <span class="pill">pr@brand.com</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h3>Write a subject line that gets opened</h3>
+        <p>Short, specific, no hype. Examples:</p>
+        <ul>
+          <li>"UGC content for [Brand] — travel creator"</li>
+          <li>"Quick idea for [Brand]'s TikTok"</li>
+          <li>"[Brand] x Fran — short-form video collab"</li>
+        </ul>
+        <p class="bad">Avoid: "COLLAB?? 🔥🔥", "Amazing opportunity for you", anything that smells like spam.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h3>Use the 5-part email structure</h3>
+        <ol>
+          <li><strong>Hook (1 line)</strong> — something specific & true about <em>them</em> ("Been using your X for every trip this year").</li>
+          <li><strong>Who you are (1 line)</strong> — "I'm Fran, a travel & lifestyle UGC creator."</li>
+          <li><strong>What you offer (1–2 lines)</strong> — the deliverable: "short-form videos you can use on your TikTok, ads, and website."</li>
+          <li><strong>Proof (1 line + link)</strong> — portfolio link. Let the work talk.</li>
+          <li><strong>Soft ask (1 line)</strong> — "Would it be helpful if I sent a couple of concepts?" Low pressure = more replies.</li>
+        </ol>
+        <p class="mini">Keep the whole thing under ~120 words. Nobody reads long cold emails.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <h3>Follow up (this is where the money is)</h3>
+        <p>Most replies come from follow-ups, not the first email. Be polite, not annoying:</p>
+        <ul>
+          <li><strong>Follow-up #1</strong> — 3–4 days later. "Bumping this up in case it got buried 🙂"</li>
+          <li><strong>Follow-up #2</strong> — ~1 week after that. Add a new angle or a fresh idea, then stop.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">6</div>
+      <div class="step-body">
+        <h3>Track everything</h3>
+        <p>Use the <strong>Outreach Tracker</strong> tab. Log who you emailed, when, and the status. Aim for a steady number per week (e.g. 5–10). Volume + follow-ups = deals.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3>Ready-to-use email templates</h3>
+  <p class="subtitle">These auto-fill with your name & portfolio from "My Info". Click copy, then personalize the [brackets].</p>
+
+  <div class="card" id="templateHost"></div>
+
+  <div class="callout warn">
+    <strong>Two rules that keep you out of trouble:</strong> (1) Never fake numbers or brands you've worked with. (2) When a post is paid or gifted, disclose it (#ad / #gifted) — it's the law (FTC) and brands require it.
+  </div>
+</section>
+
+<!-- ============ TAB 2: BRAND FINDER ============ -->
+<section class="panel" id="finder">
+  <h2 class="section-title">Brand Finder + Email Builder</h2>
+  <p class="subtitle">Paste a TikTok link and what you can see. I'll give you a plan to find the real contact + write your pitch.</p>
+
+  <div class="callout warn">
+    <strong>Honest heads-up:</strong> No web page can secretly pull a brand's private email from a TikTok link (that data isn't public). This tool does the two things that actually work: it hands you an exact <em>find-the-contact checklist</em> and it <em>writes your pitch email</em> for you. The finding takes ~3 minutes of clicking — the checklist makes it easy.
+  </div>
+
+  <div class="card">
+    <label>TikTok video link</label>
+    <input type="url" id="ttLink" placeholder="https://www.tiktok.com/@creator/video/123..." />
+    <div class="btn-row">
+      <button class="btn secondary" id="fetchBtn" onclick="fetchTikTok()">Try to auto-read the video info</button>
+      <span class="mini" id="fetchMsg" style="align-self:center"></span>
+    </div>
+
+    <div class="grid2">
+      <div>
+        <label>Product shown in the video</label>
+        <input type="text" id="productName" placeholder="e.g. Béis weekender bag" />
+      </div>
+      <div>
+        <label>Brand name (if you know it)</label>
+        <input type="text" id="brandName" placeholder="e.g. Béis" />
+      </div>
+    </div>
+    <div class="grid2">
+      <div>
+        <label>Brand website domain (if you know it)</label>
+        <input type="text" id="brandDomain" placeholder="e.g. beistravel.com" />
+      </div>
+      <div>
+        <label>Brand's Instagram / TikTok handle</label>
+        <input type="text" id="brandHandle" placeholder="e.g. @beis" />
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn" onclick="buildPlan()">Build my plan + email →</button>
+      <button class="btn secondary" onclick="clearFinder()">Clear</button>
+    </div>
+  </div>
+
+  <div id="finderResults"></div>
+</section>
+
+<!-- ============ TAB 2.5: BEAUTY & JEWELRY TARGETS ============ -->
+<section class="panel" id="beauty">
+  <h2 class="section-title">Beauty &amp; Jewelry Brand Targets</h2>
+  <p class="subtitle">A curated pitch list for @herconstellation — a celestial-aesthetic lifestyle creator (beauty/GRWM, jewelry, travel, food).</p>
+
+  <div class="callout tip">
+    <strong>Her unfair advantage:</strong> the <em>@herconstellation</em> handle + celestial aesthetic is a literal match for zodiac/constellation jewelry, and <strong>GRWM</strong> is the perfect format because one video bundles <strong>makeup + skincare + jewelry</strong> in context. Lead every pitch with that hook.
+  </div>
+
+  <div class="card">
+    <h3>🎯 Tier 1 — "the handle writes the pitch" (start here)</h3>
+    <p class="mini">Tightest aesthetic fit. The celestial angle sells itself — open with it.</p>
+    <table>
+      <tr><th>Brand</th><th>Why it's an unfair-advantage fit</th><th>Best deal angle</th></tr>
+      <tr><td><strong>GLDN</strong></td><td>Makes actual <strong>constellation &amp; zodiac necklaces</strong>. Her handle + their product = a pitch that sells itself. Works with 10K–50K creators.</td><td>Paid UGC + affiliate</td></tr>
+      <tr><td><strong>Mint &amp; Lily</strong></td><td>"Jewelry that means something" — engraved/celestial, actively casting UGC creators in the 10–20K range.</td><td>Paid UGC</td></tr>
+      <tr><td><strong>Starface / Hero Cosmetics</strong></td><td>Star-shaped pimple patches — beauty + celestial hook in one, ideal for GRWM.</td><td>Affiliate + UGC</td></tr>
+      <tr><td><strong>Moon Juice</strong></td><td>Literally celestial branding; beauty + wellness crossover.</td><td>Gifted → paid</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>💄 Tier 2 — beauty / GRWM core</h3>
+    <p class="mini">Clean/indie brands that reply to micro creators and run paid UGC + TikTok Shop affiliate.</p>
+    <p>
+      <span class="pill">OSEA Malibu</span>
+      <span class="pill">Youth To The People</span>
+      <span class="pill">ILIA Beauty</span>
+      <span class="pill">Tower 28</span>
+      <span class="pill">Frank Body</span>
+      <span class="pill">Milk Makeup</span>
+      <span class="pill">Innisfree / APOTHE (K-beauty)</span>
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>✈️🍳 Tier 3 — her other niches (bundle as bonus reach)</h3>
+    <p class="mini">Pitch these as "she also reaches engaged travel + food audiences."</p>
+    <p><strong>Travel:</strong> <span class="pill">Béis</span> <span class="pill">Away</span> <span class="pill">Dagne Dover</span></p>
+    <p><strong>Food / cooking:</strong> <span class="pill">Caraway</span> <span class="pill">Our Place</span> <span class="pill">Graza</span> <span class="pill">Fly By Jing</span></p>
+  </div>
+
+  <div class="callout">
+    <strong>Fastest yes:</strong> scroll her For You feed for beauty/jewelry products with a <strong>commission badge</strong> — those brands are paying creators <em>right now</em> and reply quickest. Use the <a href="#" onclick="document.querySelector('[data-tab=finder]').click();return false;">Brand Finder</a> tab to get the contact + email for any brand on this list.
+  </div>
+
+  <h3 class="section-title" style="font-size:19px">The celestial pitch email</h3>
+  <p class="subtitle">Built for a multi-niche creator. Auto-fills your info; personalize the [brackets] per brand.</p>
+  <div class="card" id="beautyTemplateHost"></div>
+
+  <div class="callout warn">
+    <strong>Before you send:</strong> don't quote a rate in email #1 (get interest first — micro beauty UGC typically runs $150–$400/video). Attach 2–3 sample videos; a pitch with a sample beats one without every time.
+  </div>
+</section>
+
+<!-- ============ TAB 3: TIKTOK SHOP & UGC 101 ============ -->
+<section class="panel" id="shop">
+  <h2 class="section-title">TikTok Shop &amp; UGC — Everything a Beginner Needs</h2>
+  <p class="subtitle">Plain-English crash course. No fluff.</p>
+
+  <div class="card">
+    <h3>First, know the difference</h3>
+    <table>
+      <tr><th>Term</th><th>What it means</th><th>Who pays you & how</th></tr>
+      <tr><td><strong>UGC</strong> (User-Generated Content)</td><td>You make videos/photos of a product. The <em>brand</em> posts them (on their page, in ads, on their site). You're a content creator, not necessarily an influencer.</td><td>The brand pays a <strong>flat fee per video</strong> (or gives free product). Your follower count barely matters.</td></tr>
+      <tr><td><strong>Influencing / Creator posts</strong></td><td>You post on <em>your own</em> account to <em>your</em> audience.</td><td>Paid per post, based on your reach/engagement.</td></tr>
+      <tr><td><strong>TikTok Shop Affiliate</strong></td><td>You promote products sold on TikTok Shop with a special link/tag.</td><td><strong>Commission</strong> on every sale made through your video — passive-ish income.</td></tr>
+    </table>
+    <p class="mini">Most beginners make money fastest with <strong>UGC (flat-fee)</strong> + <strong>TikTok Shop affiliate (commission)</strong>. You can do both.</p>
+  </div>
+
+  <div class="card">
+    <h3>TikTok Shop Affiliate — how to start</h3>
+    <ol>
+      <li><strong>Eligibility (US, 2026):</strong> 18+ and 1,000+ followers to join. Between 1K–5K followers you're in the <em>Creator Pilot Program</em> (~30 days): only top-rated shops' products, max 5 product videos + 3 LIVEs/week. At 5,000+ followers the full product marketplace unlocks.</li>
+      <li><strong>Turn it on:</strong> TikTok app → Profile → menu (☰) → <em>Creator tools</em> → <em>TikTok Shop for Creators</em> / <em>Affiliate</em>. Follow the sign-up.</li>
+      <li><strong>Find products:</strong> open the <em>Affiliate marketplace</em> ("Add products" / "Showcase"). Filter by category (travel, beauty, home) and by <strong>commission %</strong>.</li>
+      <li><strong>Request free samples:</strong> many sellers offer free product to creators — request through "Free samples" so you don't pay out of pocket.</li>
+      <li><strong>Make the video</strong> → tag the product → post. When someone buys via your tag, you earn commission.</li>
+    </ol>
+    <div class="callout tip">Pick products you'd actually recommend and that fit travel/lifestyle. Trust converts; random dropshipping junk kills your reach and credibility.</div>
+  </div>
+
+  <div class="card">
+    <h3>What makes a TikTok Shop / UGC video convert</h3>
+    <ul>
+      <li><strong>Hook in 1–2 seconds</strong> — show the problem or the "wow" instantly.</li>
+      <li><strong>Native, not an ad</strong> — film like a friend showing you something, not a commercial.</li>
+      <li><strong>Show it in use</strong> — packing the bag, applying the product, real hands, real light.</li>
+      <li><strong>One clear benefit</strong> — "fits a week of clothes in a carry-on," not ten features.</li>
+      <li><strong>Soft CTA</strong> — "it's on my page / tagged below" beats "BUY NOW."</li>
+      <li><strong>Good audio + captions</strong> — trending sound (when allowed) and on-screen text.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>UGC pricing — rough beginner ranges</h3>
+    <p class="mini">Ranges vary a lot by niche, usage rights, and experience. Use as a starting point, then raise as you get booked.</p>
+    <table>
+      <tr><th>Deliverable</th><th>Typical beginner range (USD)</th></tr>
+      <tr><td>1 short-form video (15–30s), basic</td><td>$75 – $250</td></tr>
+      <tr><td>Bundle of 3 videos</td><td>$250 – $600</td></tr>
+      <tr><td>Add-on: raw footage</td><td>+$25 – $75</td></tr>
+      <tr><td>Add-on: usage rights (brand runs it as a paid ad)</td><td>+30–100% of video fee</td></tr>
+      <tr><td>Add-on: whitelisting / exclusivity</td><td>Charge more — it limits who else you can work with</td></tr>
+    </table>
+    <div class="callout"><strong>Starting out with no paid work?</strong> It's fine to do 1–2 "gifted" (free product) deals to build your portfolio — then switch to paid. Don't work for free forever.</div>
+  </div>
+
+  <div class="card">
+    <h3>Common beginner mistakes</h3>
+    <ul>
+      <li><span class="bad">✗</span> Waiting until you have a "big enough" following. UGC doesn't need one.</li>
+      <li><span class="bad">✗</span> Pitching with no portfolio. Make 3 spec videos for brands you love first (even unpaid samples).</li>
+      <li><span class="bad">✗</span> Emailing support@ or a generic form. Find the marketing/partnerships person.</li>
+      <li><span class="bad">✗</span> Sending long, generic, copy-paste emails. Personalize the first line every time.</li>
+      <li><span class="bad">✗</span> Never following up. Most yeses come from follow-up #1 or #2.</li>
+      <li><span class="bad">✗</span> Forgetting to disclose #ad / #gifted. Required by the FTC and by brands.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Quick glossary</h3>
+    <table>
+      <tr><td><strong>Deliverable</strong></td><td>The exact thing you hand over (e.g. "one 20s vertical video").</td></tr>
+      <tr><td><strong>Usage rights</strong></td><td>Permission for the brand to run your video as a paid ad. Charge extra.</td></tr>
+      <tr><td><strong>Whitelisting</strong></td><td>Brand runs ads through your account/handle. Charge more.</td></tr>
+      <tr><td><strong>Rate card</strong></td><td>A simple list of your prices you can send brands.</td></tr>
+      <tr><td><strong>Media kit</strong></td><td>1-page PDF: who you are, niche, sample work, rates.</td></tr>
+      <tr><td><strong>Gifted / seeding</strong></td><td>Brand sends free product instead of (or before) cash.</td></tr>
+      <tr><td><strong>Commission</strong></td><td>% you earn per sale via your TikTok Shop tag.</td></tr>
+      <tr><td><strong>GMV</strong></td><td>Total sales value driven through your links (sellers care about this).</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ============ TAB 4: TRACKER ============ -->
+<section class="panel" id="tracker">
+  <h2 class="section-title">Outreach Tracker</h2>
+  <p class="subtitle">Saved in your browser on this device. Log every brand you email so you know who to follow up with.</p>
+  <div class="btn-row">
+    <button class="btn" onclick="addRow()">+ Add brand</button>
+    <button class="btn secondary" onclick="exportCSV()">Export CSV</button>
+  </div>
+  <div class="card" style="overflow-x:auto">
+    <table id="trackerTable">
+      <thead>
+        <tr>
+          <th>Brand</th><th>Contact / email</th><th>Date sent</th><th>Status</th><th>Notes</th><th></th>
+        </tr>
+      </thead>
+      <tbody id="trackerBody"></tbody>
+    </table>
+    <p class="mini" id="trackerEmpty">No brands yet — click "Add brand".</p>
+  </div>
+</section>
+
+</main>
+
+<div class="foot">Made for Fran · everything saves locally in this browser · no accounts, no cloud</div>
+
+<!-- PROFILE MODAL -->
+<div class="modal-bg" id="profileModal">
+  <div class="modal">
+    <h3>My Info</h3>
+    <p class="mini">Used to auto-fill your emails. Saved only on this device.</p>
+    <label>Your name / creator name</label>
+    <input type="text" id="pfName" placeholder="Fran" />
+    <label>Portfolio link</label>
+    <input type="url" id="pfPortfolio" placeholder="https://..." />
+    <label>Your niche (short)</label>
+    <input type="text" id="pfNiche" placeholder="travel, food & lifestyle" />
+    <label>Your email (how brands reply to you)</label>
+    <input type="email" id="pfEmail" placeholder="you@email.com" />
+    <div class="btn-row">
+      <button class="btn" onclick="saveProfile()">Save</button>
+      <button class="btn secondary" onclick="closeProfile()">Close</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ---------- storage ---------- */
+const LS = {
+  get: (k, d) => { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch { return d; } },
+  set: (k, v) => localStorage.setItem(k, JSON.stringify(v))
+};
+let profile = LS.get('fran_profile', { name:'', portfolio:'', niche:'travel & lifestyle', email:'' });
+
+/* ---------- tabs ---------- */
+document.querySelectorAll('.tab').forEach(t => t.onclick = () => {
+  document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(x => x.classList.remove('active'));
+  t.classList.add('active');
+  document.getElementById(t.dataset.tab).classList.add('active');
+});
+
+/* ---------- toast ---------- */
+function toast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),1600); }
+
+/* ---------- copy ---------- */
+function copyText(txt){ navigator.clipboard.writeText(txt).then(()=>toast('Copied ✓')).catch(()=>toast('Copy failed — select manually')); }
+
+/* ---------- profile modal ---------- */
+function openProfile(){
+  document.getElementById('pfName').value = profile.name;
+  document.getElementById('pfPortfolio').value = profile.portfolio;
+  document.getElementById('pfNiche').value = profile.niche;
+  document.getElementById('pfEmail').value = profile.email;
+  document.getElementById('profileModal').classList.add('open');
+}
+function closeProfile(){ document.getElementById('profileModal').classList.remove('open'); }
+function saveProfile(){
+  profile = {
+    name: document.getElementById('pfName').value.trim(),
+    portfolio: document.getElementById('pfPortfolio').value.trim(),
+    niche: document.getElementById('pfNiche').value.trim() || 'travel & lifestyle',
+    email: document.getElementById('pfEmail').value.trim()
+  };
+  LS.set('fran_profile', profile);
+  renderTemplates();
+  renderBeautyTemplates();
+  closeProfile();
+  toast('Saved ✓');
+}
+
+/* ---------- helpers ---------- */
+const N = () => profile.name || '[Your name]';
+const PORT = () => profile.portfolio || '[your portfolio link]';
+const NICHE = () => profile.niche || 'travel & lifestyle';
+const SIG = () => `${N()}\n${NICHE()} UGC creator${profile.portfolio ? '\n'+profile.portfolio : ''}${profile.email ? '\n'+profile.email : ''}`;
+
+/* ---------- templates (tab 1) ---------- */
+function templates(){
+  return [
+    {
+      title: 'Cold pitch (brand you use)',
+      subject: `UGC content for [Brand] — ${NICHE()} creator`,
+      body:
+`Hi [First name],
+
+I've been using [Brand]'s [product] on my trips and genuinely love it — the [specific detail] especially.
+
+I'm ${N()}, a ${NICHE()} UGC creator. I make short-form videos brands can use on their own TikTok, in paid ads, and on their site — no big following required on your end, just content that converts.
+
+A few recent examples: ${PORT()}
+
+Would it be helpful if I sent over 2–3 quick concepts for [Brand]? Happy to shoot a sample.
+
+Thanks so much,
+${SIG()}`
+    },
+    {
+      title: 'Gifted / sample first (portfolio building)',
+      subject: `[Brand] x ${N()} — short-form video collab`,
+      body:
+`Hi [First name],
+
+Big fan of [Brand] — [one specific, true reason].
+
+I'm ${N()}, a ${NICHE()} UGC creator. I'd love to create a short-form video featuring [product]. If you're open to sending one over, I'll produce a video you're free to use across your channels — a low-risk way for us to test working together.
+
+Recent work: ${PORT()}
+
+Would that be something you're up for?
+
+Warmly,
+${SIG()}`
+    },
+    {
+      title: 'Follow-up #1 (3–4 days later)',
+      subject: `Re: UGC content for [Brand]`,
+      body:
+`Hi [First name],
+
+Just floating this back to the top in case it got buried 🙂 Still happy to send a couple of video concepts for [Brand] whenever the timing's right.
+
+Thanks!
+${N()}`
+    },
+    {
+      title: 'Follow-up #2 (about a week later)',
+      subject: `Re: UGC content for [Brand]`,
+      body:
+`Hi [First name],
+
+Last note from me — I put together a quick idea for [Brand]: [one-line concept, e.g. "a 'what's in my carry-on' video featuring the weekender"]. If it's useful I'd love to make it; if not, no worries at all and I'll leave you to it.
+
+Either way, big fan of what you're building.
+
+Best,
+${SIG()}`
+    }
+  ];
+}
+function renderTemplates(){
+  const host = document.getElementById('templateHost');
+  host.innerHTML = templates().map((t,i)=>`
+    <div style="margin-bottom:18px;${i>0?'border-top:1px solid var(--border);padding-top:16px':''}">
+      <div class="copy-line">
+        <h4 style="margin:0">${t.title}</h4>
+        <button class="copy-btn" onclick="copyText(document.getElementById('tpl${i}').innerText)">Copy email</button>
+      </div>
+      <div class="mini">Subject: <span style="color:var(--text)">${t.subject}</span>
+        <button class="copy-btn" style="margin-left:6px" onclick="copyText(${JSON.stringify(t.subject)})">copy subject</button>
+      </div>
+      <div class="output" id="tpl${i}">${t.body.replace(/</g,'&lt;')}</div>
+    </div>`).join('');
+}
+
+/* ---------- beauty & jewelry targets (tab 2.5) ---------- */
+function beautyTemplates(){
+  return [
+    {
+      title: 'Celestial pitch (jewelry / beauty)',
+      subject: `her constellation x [Brand] — your celestial line, her audience`,
+      body:
+`Hi [First name],
+
+I manage her constellation (@herconstellation on TikTok) — a lifestyle creator across beauty/GRWM, jewelry, travel, and food. Her whole brand is built on a celestial aesthetic, which is why [Brand]'s [constellation necklaces / celestial line] is such a natural fit — her audience already follows her *for* exactly this.
+
+I wanted to reach out about short-form UGC. Her GRWM videos are ideal for [Brand] because [product] gets featured in-context — worn, styled, in a real routine — the kind of native content that converts on TikTok Shop and doubles as paid ad creative. A few ways we work with brands:
+
+- Paid UGC — you keep full usage rights to run the videos as ads
+- TikTok Shop affiliate — she features [Brand] in her showcase for commission on sales
+- Ongoing content — a set number of videos per month
+
+I've attached a couple of samples / her media kit. If it's a fit, I'll send concepts and rates built specifically for [Brand].
+
+Who's the best person to talk to about this?
+
+Thanks,
+${SIG()}`
+    },
+    {
+      title: 'Follow-up (day 4–5, one bump)',
+      subject: `Re: her constellation x [Brand]`,
+      body:
+`Hi [First name],
+
+Floating this back up in case it got buried. Happy to send a quick sample video styled around [product] if that's easier than a media kit. Would love to make something for you.
+
+Thanks!
+${N()}`
+    }
+  ];
+}
+function renderBeautyTemplates(){
+  const host = document.getElementById('beautyTemplateHost');
+  if(!host) return;
+  host.innerHTML = beautyTemplates().map((t,i)=>`
+    <div style="margin-bottom:18px;${i>0?'border-top:1px solid var(--border);padding-top:16px':''}">
+      <div class="copy-line">
+        <h4 style="margin:0">${t.title}</h4>
+        <button class="copy-btn" onclick="copyText(document.getElementById('btpl${i}').innerText)">Copy email</button>
+      </div>
+      <div class="mini">Subject: <span style="color:var(--text)">${t.subject}</span>
+        <button class="copy-btn" style="margin-left:6px" onclick="copyText(${JSON.stringify(t.subject)})">copy subject</button>
+      </div>
+      <div class="output" id="btpl${i}">${t.body.replace(/</g,'&lt;')}</div>
+    </div>`).join('');
+}
+
+/* ---------- brand finder (tab 2) ---------- */
+function fetchTikTok(){
+  const url = document.getElementById('ttLink').value.trim();
+  const msg = document.getElementById('fetchMsg');
+  if(!url){ msg.textContent='Paste a link first.'; return; }
+  msg.textContent = 'Trying…';
+  // TikTok oEmbed is public but may be blocked by CORS depending on browser/how you opened the file.
+  fetch('https://www.tiktok.com/oembed?url=' + encodeURIComponent(url))
+    .then(r => r.ok ? r.json() : Promise.reject())
+    .then(d => {
+      msg.innerHTML = `Got it → creator: <strong>${(d.author_name||'?')}</strong>. Caption below can reveal the brand:`;
+      const cap = document.createElement('div');
+      cap.className = 'output';
+      cap.style.marginTop = '8px';
+      cap.textContent = d.title || '(no caption returned)';
+      msg.parentNode.parentNode.insertBefore(cap, msg.parentNode.nextSibling);
+    })
+    .catch(() => { msg.textContent = "Couldn't auto-read (TikTok blocks it here) — no problem, just fill the fields below manually. Open the video and read the caption + tagged accounts."; });
+}
+
+function guessDomain(){
+  let d = document.getElementById('brandDomain').value.trim().toLowerCase();
+  if(d) return d.replace(/^https?:\/\//,'').replace(/\/.*/,'').replace(/^www\./,'');
+  let b = document.getElementById('brandName').value.trim().toLowerCase();
+  if(b) return b.replace(/[^a-z0-9]/g,'') + '.com';
+  return '';
+}
+
+function buildPlan(){
+  const brand = document.getElementById('brandName').value.trim() || '[Brand]';
+  const product = document.getElementById('productName').value.trim() || '[product]';
+  const domain = guessDomain();
+  const handle = document.getElementById('brandHandle').value.trim();
+  const link = document.getElementById('ttLink').value.trim();
+
+  const patterns = domain ? [
+    'hello@'+domain, 'marketing@'+domain, 'partnerships@'+domain,
+    'pr@'+domain, 'collabs@'+domain, 'info@'+domain, 'press@'+domain
+  ] : [];
+
+  const searchQ = encodeURIComponent(`${brand} marketing OR partnerships OR influencer email`);
+  const igSearch = handle ? `Open ${handle} → tap "Email" / the business contact button in the bio.` : `Find ${brand} on Instagram → tap the "Email"/contact button in bio, or the "collabs" link.`;
+
+  const checklist = [
+    `Open the TikTok${link?' ('+link+')':''} and read the caption + check tagged accounts and the pinned comment — the brand is often linked there.`,
+    igSearch,
+    `Go to <a href="https://${domain||'brand.com'}" target="_blank" rel="noopener">${domain||'the brand website'}</a> → scroll to the footer → look for "Contact", "Press", "Work with us", or "Affiliates/Creators".`,
+    `On the site, also check an "About"/"Team" page — sometimes a marketing manager is named. Then guess their email with the patterns below.`,
+    `Google it: <a href="https://www.google.com/search?q=${searchQ}" target="_blank" rel="noopener">${brand} marketing / partnerships email</a>.`,
+    `If it's on TikTok Shop, open the product's seller page — there may be a creator/affiliate contact or a "message seller" option.`,
+    `LinkedIn: search "${brand} marketing" or "${brand} influencer" to find a name, then match it to an email pattern.`,
+    `Last resort: use the site's contact form and ask "who handles creator/UGC partnerships?" — then email that person directly.`
+  ];
+
+  const email =
+`Subject: UGC content for ${brand} — ${NICHE()} creator
+
+Hi [First name],
+
+I've been using ${brand}'s ${product} and genuinely love it — [add one specific, true detail here].
+
+I'm ${N()}, a ${NICHE()} UGC creator. I make short-form videos ${brand} can use on your own TikTok, in paid ads, and on your site — content built to convert, no following required on my end.
+
+Recent examples: ${PORT()}
+
+Would it be helpful if I sent over 2–3 quick concepts for ${product}? Happy to shoot a sample.
+
+Thanks so much,
+${SIG()}`;
+
+  document.getElementById('finderResults').innerHTML = `
+    <h3 class="section-title" style="font-size:19px">Step 1 — Find the contact for ${brand}</h3>
+    <div class="card">
+      <p class="mini">Work down this list — check each box as you go. It usually takes 2–3 minutes.</p>
+      <ul class="checklist">
+        ${checklist.map(c=>`<li><input type="checkbox"><span>${c}</span></li>`).join('')}
+      </ul>
+      ${patterns.length ? `
+      <h4>Likely email patterns for <span style="color:var(--text)">${domain}</span></h4>
+      <p class="mini">Try the top ones first. Tip: a "sent" email that doesn't bounce usually means it's real.</p>
+      <div class="output">${patterns.join('\n')}</div>
+      <button class="copy-btn" style="margin-top:8px" onclick="copyText(${JSON.stringify(patterns.join('\n'))})">Copy all patterns</button>
+      ` : `<div class="callout warn">Enter the brand name or website domain above to generate email-pattern guesses.</div>`}
+    </div>
+
+    <h3 class="section-title" style="font-size:19px">Step 2 — Your ready-to-send email</h3>
+    <div class="card">
+      <div class="copy-line">
+        <span class="mini">Personalize the [brackets], then send.</span>
+        <button class="copy-btn" onclick="copyText(document.getElementById('finderEmail').innerText)">Copy email</button>
+      </div>
+      <div class="output" id="finderEmail">${email.replace(/</g,'&lt;')}</div>
+    </div>
+
+    <h3 class="section-title" style="font-size:19px">Step 3 — Log it & follow up</h3>
+    <div class="card">
+      <p>Add ${brand} to your <a href="#" onclick="document.querySelector('[data-tab=tracker]').click();return false;">Outreach Tracker</a> so you remember to follow up in 3–4 days. Follow-ups are where most yeses come from.</p>
+      <button class="btn secondary" onclick="quickAdd('${brand.replace(/'/g,"")}','${(patterns[0]||'').replace(/'/g,"")}')">Add ${brand} to tracker</button>
+    </div>`;
+  document.getElementById('finderResults').scrollIntoView({behavior:'smooth'});
+}
+function clearFinder(){
+  ['ttLink','productName','brandName','brandDomain','brandHandle'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('finderResults').innerHTML='';
+  document.getElementById('fetchMsg').textContent='';
+}
+
+/* ---------- tracker (tab 4) ---------- */
+let rows = LS.get('fran_tracker', []);
+const STATUSES = ['Not sent','Sent','Followed up 1x','Followed up 2x','Replied','Deal!','No / dead'];
+function renderTracker(){
+  const body = document.getElementById('trackerBody');
+  document.getElementById('trackerEmpty').style.display = rows.length ? 'none':'block';
+  body.innerHTML = rows.map((r,i)=>`
+    <tr class="tracker-row">
+      <td><input type="text" value="${(r.brand||'').replace(/"/g,'&quot;')}" oninput="upd(${i},'brand',this.value)"></td>
+      <td><input type="text" value="${(r.contact||'').replace(/"/g,'&quot;')}" oninput="upd(${i},'contact',this.value)"></td>
+      <td><input type="text" value="${(r.date||'').replace(/"/g,'&quot;')}" placeholder="MM/DD" oninput="upd(${i},'date',this.value)"></td>
+      <td><select class="status-select" onchange="upd(${i},'status',this.value)">${STATUSES.map(s=>`<option ${r.status===s?'selected':''}>${s}</option>`).join('')}</select></td>
+      <td><input type="text" value="${(r.notes||'').replace(/"/g,'&quot;')}" oninput="upd(${i},'notes',this.value)"></td>
+      <td><button class="del-btn" onclick="delRow(${i})">✕</button></td>
+    </tr>`).join('');
+}
+function addRow(){ rows.push({brand:'',contact:'',date:'',status:'Not sent',notes:''}); saveTracker(); }
+function quickAdd(brand, contact){
+  rows.push({brand:brand, contact:contact, date:'', status:'Not sent', notes:''});
+  saveTracker();
+  toast(brand+' added to tracker ✓');
+}
+function upd(i,k,v){ rows[i][k]=v; LS.set('fran_tracker',rows); }
+function delRow(i){ rows.splice(i,1); saveTracker(); }
+function saveTracker(){ LS.set('fran_tracker',rows); renderTracker(); }
+function exportCSV(){
+  if(!rows.length){ toast('Nothing to export'); return; }
+  const head = ['Brand','Contact','Date sent','Status','Notes'];
+  const esc = s => '"'+String(s||'').replace(/"/g,'""')+'"';
+  const csv = [head.join(',')].concat(rows.map(r=>[r.brand,r.contact,r.date,r.status,r.notes].map(esc).join(','))).join('\n');
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([csv],{type:'text/csv'}));
+  a.download = 'fran-outreach.csv';
+  a.click();
+}
+
+/* ---------- init ---------- */
+renderTemplates();
+renderBeautyTemplates();
+renderTracker();
+</script>
+</body>
+</html>
