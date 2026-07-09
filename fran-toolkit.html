@@ -306,6 +306,7 @@
 <nav class="tabs">
   <button class="tab active" data-tab="pitch">📧 Pitch 101</button>
   <button class="tab" data-tab="finder">🔎 Brand Finder + Email Builder</button>
+  <button class="tab" data-tab="beauty">💄 Beauty & Jewelry Targets</button>
   <button class="tab" data-tab="shop">🛍️ TikTok Shop & UGC 101</button>
   <button class="tab" data-tab="tracker">📊 Outreach Tracker</button>
 </nav>
@@ -444,6 +445,61 @@
   </div>
 
   <div id="finderResults"></div>
+</section>
+
+<!-- ============ TAB 2.5: BEAUTY & JEWELRY TARGETS ============ -->
+<section class="panel" id="beauty">
+  <h2 class="section-title">Beauty &amp; Jewelry Brand Targets</h2>
+  <p class="subtitle">A curated pitch list for @herconstellation — a celestial-aesthetic lifestyle creator (beauty/GRWM, jewelry, travel, food).</p>
+
+  <div class="callout tip">
+    <strong>Her unfair advantage:</strong> the <em>@herconstellation</em> handle + celestial aesthetic is a literal match for zodiac/constellation jewelry, and <strong>GRWM</strong> is the perfect format because one video bundles <strong>makeup + skincare + jewelry</strong> in context. Lead every pitch with that hook.
+  </div>
+
+  <div class="card">
+    <h3>🎯 Tier 1 — "the handle writes the pitch" (start here)</h3>
+    <p class="mini">Tightest aesthetic fit. The celestial angle sells itself — open with it.</p>
+    <table>
+      <tr><th>Brand</th><th>Why it's an unfair-advantage fit</th><th>Best deal angle</th></tr>
+      <tr><td><strong>GLDN</strong></td><td>Makes actual <strong>constellation &amp; zodiac necklaces</strong>. Her handle + their product = a pitch that sells itself. Works with 10K–50K creators.</td><td>Paid UGC + affiliate</td></tr>
+      <tr><td><strong>Mint &amp; Lily</strong></td><td>"Jewelry that means something" — engraved/celestial, actively casting UGC creators in the 10–20K range.</td><td>Paid UGC</td></tr>
+      <tr><td><strong>Starface / Hero Cosmetics</strong></td><td>Star-shaped pimple patches — beauty + celestial hook in one, ideal for GRWM.</td><td>Affiliate + UGC</td></tr>
+      <tr><td><strong>Moon Juice</strong></td><td>Literally celestial branding; beauty + wellness crossover.</td><td>Gifted → paid</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>💄 Tier 2 — beauty / GRWM core</h3>
+    <p class="mini">Clean/indie brands that reply to micro creators and run paid UGC + TikTok Shop affiliate.</p>
+    <p>
+      <span class="pill">OSEA Malibu</span>
+      <span class="pill">Youth To The People</span>
+      <span class="pill">ILIA Beauty</span>
+      <span class="pill">Tower 28</span>
+      <span class="pill">Frank Body</span>
+      <span class="pill">Milk Makeup</span>
+      <span class="pill">Innisfree / APOTHE (K-beauty)</span>
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>✈️🍳 Tier 3 — her other niches (bundle as bonus reach)</h3>
+    <p class="mini">Pitch these as "she also reaches engaged travel + food audiences."</p>
+    <p><strong>Travel:</strong> <span class="pill">Béis</span> <span class="pill">Away</span> <span class="pill">Dagne Dover</span></p>
+    <p><strong>Food / cooking:</strong> <span class="pill">Caraway</span> <span class="pill">Our Place</span> <span class="pill">Graza</span> <span class="pill">Fly By Jing</span></p>
+  </div>
+
+  <div class="callout">
+    <strong>Fastest yes:</strong> scroll her For You feed for beauty/jewelry products with a <strong>commission badge</strong> — those brands are paying creators <em>right now</em> and reply quickest. Use the <a href="#" onclick="document.querySelector('[data-tab=finder]').click();return false;">Brand Finder</a> tab to get the contact + email for any brand on this list.
+  </div>
+
+  <h3 class="section-title" style="font-size:19px">The celestial pitch email</h3>
+  <p class="subtitle">Built for a multi-niche creator. Auto-fills your info; personalize the [brackets] per brand.</p>
+  <div class="card" id="beautyTemplateHost"></div>
+
+  <div class="callout warn">
+    <strong>Before you send:</strong> don't quote a rate in email #1 (get interest first — micro beauty UGC typically runs $150–$400/video). Attach 2–3 sample videos; a pitch with a sample beats one without every time.
+  </div>
 </section>
 
 <!-- ============ TAB 3: TIKTOK SHOP & UGC 101 ============ -->
@@ -614,6 +670,7 @@ function saveProfile(){
   };
   LS.set('fran_profile', profile);
   renderTemplates();
+  renderBeautyTemplates();
   closeProfile();
   toast('Saved ✓');
 }
@@ -699,6 +756,59 @@ function renderTemplates(){
         <button class="copy-btn" style="margin-left:6px" onclick="copyText(${JSON.stringify(t.subject)})">copy subject</button>
       </div>
       <div class="output" id="tpl${i}">${t.body.replace(/</g,'&lt;')}</div>
+    </div>`).join('');
+}
+
+/* ---------- beauty & jewelry targets (tab 2.5) ---------- */
+function beautyTemplates(){
+  return [
+    {
+      title: 'Celestial pitch (jewelry / beauty)',
+      subject: `her constellation x [Brand] — your celestial line, her audience`,
+      body:
+`Hi [First name],
+
+I manage her constellation (@herconstellation on TikTok) — a lifestyle creator across beauty/GRWM, jewelry, travel, and food. Her whole brand is built on a celestial aesthetic, which is why [Brand]'s [constellation necklaces / celestial line] is such a natural fit — her audience already follows her *for* exactly this.
+
+I wanted to reach out about short-form UGC. Her GRWM videos are ideal for [Brand] because [product] gets featured in-context — worn, styled, in a real routine — the kind of native content that converts on TikTok Shop and doubles as paid ad creative. A few ways we work with brands:
+
+- Paid UGC — you keep full usage rights to run the videos as ads
+- TikTok Shop affiliate — she features [Brand] in her showcase for commission on sales
+- Ongoing content — a set number of videos per month
+
+I've attached a couple of samples / her media kit. If it's a fit, I'll send concepts and rates built specifically for [Brand].
+
+Who's the best person to talk to about this?
+
+Thanks,
+${SIG()}`
+    },
+    {
+      title: 'Follow-up (day 4–5, one bump)',
+      subject: `Re: her constellation x [Brand]`,
+      body:
+`Hi [First name],
+
+Floating this back up in case it got buried. Happy to send a quick sample video styled around [product] if that's easier than a media kit. Would love to make something for you.
+
+Thanks!
+${N()}`
+    }
+  ];
+}
+function renderBeautyTemplates(){
+  const host = document.getElementById('beautyTemplateHost');
+  if(!host) return;
+  host.innerHTML = beautyTemplates().map((t,i)=>`
+    <div style="margin-bottom:18px;${i>0?'border-top:1px solid var(--border);padding-top:16px':''}">
+      <div class="copy-line">
+        <h4 style="margin:0">${t.title}</h4>
+        <button class="copy-btn" onclick="copyText(document.getElementById('btpl${i}').innerText)">Copy email</button>
+      </div>
+      <div class="mini">Subject: <span style="color:var(--text)">${t.subject}</span>
+        <button class="copy-btn" style="margin-left:6px" onclick="copyText(${JSON.stringify(t.subject)})">copy subject</button>
+      </div>
+      <div class="output" id="btpl${i}">${t.body.replace(/</g,'&lt;')}</div>
     </div>`).join('');
 }
 
@@ -847,6 +957,7 @@ function exportCSV(){
 
 /* ---------- init ---------- */
 renderTemplates();
+renderBeautyTemplates();
 renderTracker();
 </script>
 </body>
