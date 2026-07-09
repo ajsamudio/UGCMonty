@@ -6,8 +6,10 @@ export const inquirySchema = z.object({
   property: z.string().min(2, "Please enter your brand or company"),
   dates: z.string().optional(),
   message: z.string().min(10, "Please tell me a little more (10+ characters)"),
-  // Honeypot — must stay empty. Bots tend to fill every field.
-  company_website: z.string().max(0).optional(),
+  // Honeypot — bots tend to fill every field. Deliberately unvalidated so a
+  // filled value reaches the API route, which then fakes success silently;
+  // rejecting it here would 422 and name the trap field in the error body.
+  company_website: z.string().optional(),
 });
 
 export type InquiryInput = z.infer<typeof inquirySchema>;
